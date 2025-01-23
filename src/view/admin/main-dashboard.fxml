@@ -15,29 +15,33 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1280.0" style="-fx-background-color: #fff;" stylesheets="@../resources/css/dashboard.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.admin.MainDashboardController">
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1280.0" style="-fx-background-color: #fff;" stylesheets="@../resources/css/dashboard.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.admin.MainDashboardController">
     <StackPane layoutY="-9.0" prefHeight="800.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <BorderPane prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <left>
                 <AnchorPane fx:id="acDashBord">
                     <AnchorPane prefHeight="466.0" prefWidth="0.0">
-                        <Button fx:id="btnHome" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutY="13.0" mnemonicParsing="false" onAction="#btnHomeOnClick" prefHeight="78.0" prefWidth="127.0" styleClass="menuButton" text="Home" />
-                        <Button fx:id="btnProducts" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutY="104.0" mnemonicParsing="false" onAction="#btnProductsOnClick" prefHeight="78.0" prefWidth="127.0" styleClass="menuButton" text="Products" />
-                        <Button fx:id="btnCustomers" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutY="287.0" mnemonicParsing="false" onAction="#btnCustomersOnClick" prefHeight="78.0" prefWidth="127.0" styleClass="menuButton" text="Customers" />
-                        <Button fx:id="btnOrders" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutY="196.0" mnemonicParsing="false" onAction="#btnOrdersOnClick" prefHeight="78.0" prefWidth="127.0" styleClass="menuButton" text="Orders" />
-                        <Button fx:id="btnSettings" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutY="376.0" mnemonicParsing="false" onAction="#btnSettingsOnClick" prefHeight="78.0" prefWidth="127.0" styleClass="menuButton" text="Settings" />
-                  <ImageView fitHeight="35.0" fitWidth="52.0" layoutX="46.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+                        <Button fx:id="btnHome" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutY="2.0" mnemonicParsing="false" onAction="#btnHomeOnClick" prefHeight="78.0" prefWidth="127.0" styleClass="menuButton" text="Home">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font></Button>
+                        <Button fx:id="btnProducts" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutY="93.0" mnemonicParsing="false" onAction="#btnProductsOnClick" prefHeight="78.0" prefWidth="127.0" styleClass="menuButton" text="Products" />
+                        <Button fx:id="btnCustomers" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutY="275.0" mnemonicParsing="false" onAction="#btnCustomersOnClick" prefHeight="78.0" prefWidth="127.0" styleClass="menuButton" text="Customers" />
+                        <Button fx:id="btnOrders" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutY="184.0" mnemonicParsing="false" onAction="#btnOrdersOnClick" prefHeight="78.0" prefWidth="127.0" styleClass="menuButton" text="Orders" />
+                        <Button fx:id="btnSettings" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutY="367.0" mnemonicParsing="false" onAction="#btnSettingsOnClick" prefHeight="78.0" prefWidth="127.0" styleClass="menuButton" text="Settings" />
+                  <ImageView fitHeight="35.0" fitWidth="52.0" layoutX="47.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../resources/img/Icons/home.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="53.0" fitWidth="55.0" layoutX="38.0" layoutY="113.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="47.0" fitWidth="46.0" layoutX="42.0" layoutY="111.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../resources/img/Icons/office-supplies.png" />
+                        <Image url="@../resources/img/Icons/stationary.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="42.0" fitWidth="44.0" layoutX="44.0" layoutY="212.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="42.0" fitWidth="44.0" layoutX="44.0" layoutY="205.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../resources/img/Icons/checklist.png" />
                      </image>
@@ -45,7 +49,7 @@
                         <Cursor fx:constant="SE_RESIZE" />
                      </cursor>
                   </ImageView>
-                  <ImageView fitHeight="42.0" fitWidth="44.0" layoutX="43.0" layoutY="300.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="42.0" fitWidth="44.0" layoutX="43.0" layoutY="296.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../resources/img/Icons/customer.png" />
                      </image>
@@ -53,7 +57,7 @@
                         <Cursor fx:constant="SE_RESIZE" />
                      </cursor>
                   </ImageView>
-                  <ImageView fitHeight="42.0" fitWidth="44.0" layoutX="43.0" layoutY="386.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="42.0" fitWidth="44.0" layoutX="42.0" layoutY="387.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../resources/img/Icons/settings.png" />
                      </image>
@@ -62,6 +66,33 @@
                      </cursor>
                   </ImageView>
                     </AnchorPane>
+               <Button fx:id="btnNotice" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutY="459.0" mnemonicParsing="false" onAction="#btnNoticeOnClick" prefHeight="78.0" prefWidth="127.0" styleClass="menuButton" text="Notice Board" />
+               <ImageView fitHeight="42.0" fitWidth="44.0" layoutX="39.0" layoutY="480.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../resources/img/Icons/noticeboard.png" />
+                  </image>
+                  <cursor>
+                     <Cursor fx:constant="SE_RESIZE" />
+                  </cursor>
+               </ImageView>
+               <Button fx:id="btnNotice1" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutY="551.0" mnemonicParsing="false" onAction="#btnNoticeOnClick" prefHeight="78.0" prefWidth="127.0" styleClass="menuButton" text="Bookworm Forum" textAlignment="CENTER" wrapText="true" />
+               <ImageView fitHeight="42.0" fitWidth="44.0" layoutX="42.0" layoutY="558.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../resources/img/Icons/group.png" />
+                  </image>
+                  <cursor>
+                     <Cursor fx:constant="SE_RESIZE" />
+                  </cursor>
+               </ImageView>
+               <Button fx:id="btnNotice11" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutY="642.0" mnemonicParsing="false" onAction="#btnNoticeOnClick" prefHeight="78.0" prefWidth="127.0" styleClass="menuButton" text="Question Bank" textAlignment="CENTER" wrapText="true" />
+               <ImageView fitHeight="42.0" fitWidth="44.0" layoutX="39.0" layoutY="660.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../resources/img/Icons/qb.png" />
+                  </image>
+                  <cursor>
+                     <Cursor fx:constant="SE_RESIZE" />
+                  </cursor>
+               </ImageView>
                 </AnchorPane>
             </left>
             <center>

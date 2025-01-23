@@ -40,9 +40,12 @@ public class MainDashboardController implements Initializable {
     @FXML
     public Button btnSettings;
     @FXML
+    public Button btnNotice;
+    @FXML
     public Button lblLogOut;
     @FXML
     public AnchorPane dashHead;
+
     @FXML
     private StackPane dashContent;
     @FXML
@@ -105,6 +108,15 @@ public class MainDashboardController implements Initializable {
      */
     public void btnSettingsOnClick(ActionEvent actionEvent) {
         FXMLLoader fxmlLoader = loadFxmlPage("/view/admin/pages/settings/settings.fxml");
+    }
+
+    /**
+     * This method handles the settings button click.
+     * @param actionEvent       Accepts ActionEvent.
+     * @since                   1.0.0
+     */
+    public void btnNoticeOnClick(ActionEvent actionEvent) {
+        FXMLLoader fxmlLoader = loadFxmlPage("/view/admin/pages/notice/notice.fxml");
     }
 
     /**
