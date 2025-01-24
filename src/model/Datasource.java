@@ -1,8 +1,16 @@
 package model;
 
+import javafx.scene.chart.PieChart;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+
+import java.util.Map;
+import java.util.LinkedHashMap;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  * This class handles all the queries to the database.
@@ -908,4 +916,80 @@ public class Datasource extends Product {
         }
     }
 
+    // Add this method to the Datasource class
+    public Map<String, Double> fetchLast7DaysRevenue() {
+        Map<String, Double> revenueData = new LinkedHashMap<>();
+
+        String query = "SELECT DATE(order_date) AS day, SUM(price * quantity) AS revenue "
+                + "FROM orders o "
+                + "JOIN products p ON o.product_id = p.id "
+                + "WHERE order_date >= DATE('now', '-7 days') "
+                + "GROUP BY DATE(order_date) "
+                + "ORDER BY DATE(order_date);";
+
+        try (PreparedStatement stmt = conn.prepareStatement(query);
+             ResultSet rs = stmt.executeQuery()) {
+
+            while (rs.next()) {
+                String day = rs.getString("day");
+                double revenue = rs.getDouble("revenue");
+                revenueData.put(day, revenue);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return revenueData;
+    }
+
+    /**
+     * Fetches the top 5 best-selling categories and groups the rest into "Other Categories".
+     *
+     * @return A list of PieChart.Data for the PieChart.
+     */
+    public List<PieChart.Data> fetchTopCategories() {
+        List<PieChart.Data> data = new ArrayList<>();
+
+        String query = """
+                SELECT c.name AS category_name, SUM(p.price) AS total_sales
+                FROM orders o
+                JOIN products p ON o.product_id = p.id
+                JOIN categories c ON p.category_id = c.id
+                GROUP BY c.name
+                ORDER BY total_sales DESC;
+                """;
+
+        if (conn == null) {
+            System.out.println("Database connection is not open!");
+            return data;
+        }
+
+        try (Statement statement = conn.createStatement();
+             ResultSet resultSet = statement.executeQuery(query)) {
+
+            double otherSales = 0.0;
+            int count = 0;
+
+            while (resultSet.next()) {
+                String categoryName = resultSet.getString("category_name");
+                double totalSales = resultSet.getDouble("total_sales");
+
+                if (count < 5) {
+                    data.add(new PieChart.Data(categoryName, totalSales));
+                } else {
+                    otherSales += totalSales; // Group other categories
+                }
+                count++;
+            }
+
+            // Add "Other Categories" if applicable
+            if (otherSales > 0) {
+                data.add(new PieChart.Data("Other Categories", otherSales));
+            }
+        } catch (SQLException e) {
+            System.out.println("Query failed: " + e.getMessage());
+        }
+
+        return data;
+    }
 }
