@@ -1,4 +1,4 @@
-- [ ] Design the Dashboard page.
+- [x] Design the Dashboard page.
 
 ## What will the dashboard page contain???
 ### Overview 

@@ -920,7 +920,7 @@ public class Datasource extends Product {
     public Map<String, Double> fetchLast7DaysRevenue() {
         Map<String, Double> revenueData = new LinkedHashMap<>();
 
-        String query = "SELECT DATE(order_date) AS day, SUM(price * quantity) AS revenue "
+        String query = "SELECT DATE(order_date) AS day, SUM(price) AS revenue "
                 + "FROM orders o "
                 + "JOIN products p ON o.product_id = p.id "
                 + "WHERE order_date >= DATE('now', '-7 days') "
@@ -992,4 +992,12 @@ public class Datasource extends Product {
 
         return data;
     }
+
+
+
+
+
+
+
+
 }

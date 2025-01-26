@@ -109,7 +109,7 @@ public class MainDashboardController implements Initializable {
      * @since                   1.0.0
      */
     public void btnSettingsOnClick(ActionEvent actionEvent) {
-        FXMLLoader fxmlLoader = loadFxmlPage("/view/admin/pages/settings/settings.fxml");
+        FXMLLoader fxmlLoader = loadFxmlPage("/view/user/pages/ProfilePage/profile.fxml");
     }
 
     /**
@@ -119,6 +119,16 @@ public class MainDashboardController implements Initializable {
      */
     public void btnNoticeOnClick(ActionEvent actionEvent) {
         FXMLLoader fxmlLoader = loadFxmlPage("/view/admin/pages/notice/notice.fxml");
+    }
+
+    /**
+     * This method handles the settings button click.
+     * @param actionEvent       Accepts ActionEvent.
+     * @since                   1.0.0
+     */
+    public void btnForumOnClick(ActionEvent actionEvent) {
+        FXMLLoader fxmlLoader = loadFxmlPage("/view/user/pages/forum/forum.fxml");
+        System.out.println("Forum Clicked");
     }
 
     /**

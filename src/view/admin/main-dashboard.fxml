@@ -30,7 +30,7 @@
                         <Button fx:id="btnProducts" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutY="93.0" mnemonicParsing="false" onAction="#btnProductsOnClick" prefHeight="78.0" prefWidth="127.0" styleClass="menuButton" text="Products" />
                         <Button fx:id="btnCustomers" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutY="275.0" mnemonicParsing="false" onAction="#btnCustomersOnClick" prefHeight="78.0" prefWidth="127.0" styleClass="menuButton" text="Customers" />
                         <Button fx:id="btnOrders" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutY="184.0" mnemonicParsing="false" onAction="#btnOrdersOnClick" prefHeight="78.0" prefWidth="127.0" styleClass="menuButton" text="Orders" />
-                        <Button fx:id="btnSettings" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutY="367.0" mnemonicParsing="false" onAction="#btnSettingsOnClick" prefHeight="78.0" prefWidth="127.0" styleClass="menuButton" text="Settings" />
+                        <Button fx:id="btnSettings" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutY="367.0" mnemonicParsing="false" onAction="#btnSettingsOnClick" prefHeight="78.0" prefWidth="127.0" styleClass="menuButton" text="Profile" />
                   <ImageView fitHeight="35.0" fitWidth="52.0" layoutX="47.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../resources/img/Icons/home.png" />
@@ -75,7 +75,7 @@
                      <Cursor fx:constant="SE_RESIZE" />
                   </cursor>
                </ImageView>
-               <Button fx:id="btnNotice1" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutY="551.0" mnemonicParsing="false" onAction="#btnNoticeOnClick" prefHeight="78.0" prefWidth="127.0" styleClass="menuButton" text="Bookworm Forum" textAlignment="CENTER" wrapText="true" />
+               <Button fx:id="btnForum" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutY="551.0" mnemonicParsing="false" onAction="#btnForumOnClick" prefHeight="78.0" prefWidth="127.0" styleClass="menuButton" text="Bookworm Forum" textAlignment="CENTER" wrapText="true" />
                <ImageView fitHeight="42.0" fitWidth="44.0" layoutX="42.0" layoutY="558.0" pickOnBounds="true" preserveRatio="true">
                   <image>
                      <Image url="@../resources/img/Icons/group.png" />

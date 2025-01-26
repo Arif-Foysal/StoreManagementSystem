@@ -10,7 +10,6 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
@@ -75,7 +74,7 @@
                      <Font size="50.0" />
                   </font>
                </Label>
-               <Label alignment="CENTER_RIGHT" text="0">
+               <Label fx:id="revenueCount" alignment="CENTER_RIGHT" text="0">
                   <font>
                      <Font size="50.0" />
                   </font>
@@ -95,7 +94,7 @@
          </HBox>
          <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: lightblue; -fx-background-radius: 25;">
             <children>
-               <Label fx:id="customersCount2" alignment="CENTER_RIGHT" text="0">
+               <Label fx:id="orderCount" alignment="CENTER_RIGHT" text="0">
                   <font>
                      <Font size="50.0" />
                   </font>
@@ -115,7 +114,7 @@
          </HBox>
          <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: salmon; -fx-background-radius: 25;" GridPane.rowIndex="1">
             <children>
-               <Label fx:id="productsCount1" alignment="CENTER_RIGHT" text="0">
+               <Label fx:id="lowStockCount" alignment="CENTER_RIGHT" text="0">
                   <font>
                      <Font size="50.0" />
                   </font>
@@ -153,9 +152,6 @@
        <NumberAxis fx:id="y" label="Revenue" side="LEFT" />
      </yAxis>
    </BarChart>
-    <Pane fx:id="chartContainer">
-        <PieChart fx:id="categoryPieChart" layoutX="603.0" layoutY="431.0" prefHeight="109.0" prefWidth="142.0" title="Top Selling" />
-    </Pane>
 
    <PieChart fx:id="trendingPie" layoutX="890.0" layoutY="431.0" prefHeight="109.0" prefWidth="142.0" title="Trending" />
    <GridPane fx:id="topsellgrid" layoutX="579.0" layoutY="587.0" prefHeight="90.0" prefWidth="275.0">
