@@ -13,3 +13,6 @@
 - Line chart showing revenue trends over time.
   - Graph showing daily/weekly/monthly revenue. 
 - Pie chart of order statuses (e.g., "Pending", "Completed", "Canceled")
+- [x] Low stock page
+- [ ] Order received action
+- [ ] Add navigation items on user page

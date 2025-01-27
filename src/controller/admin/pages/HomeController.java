@@ -38,8 +38,18 @@ public class HomeController {
 
     @FXML
     private PieChart categoryPieChart; // Reference to the PieChart in the FXML file
+//    @FXML
+//    private GridPane topsellgrid;
+
     @FXML
-    private GridPane topsellgrid;
+    private Label orderCount;
+    @FXML
+    private Label revenueCount;
+    @FXML
+    private Label lowStockCount;
+
+
+
     /**
      * This method gets the products count for the admin dashboard and sets it to the productsCount label.
      * @since                   1.0.0
@@ -120,7 +130,7 @@ public class HomeController {
 //        return revenueData;
 //    }
 
-    //gridpane text setter for pie charts
+    //gridpane text setter for pie charts (not used)
     public void setLabelTexts(GridPane gridPane, ArrayList<String> percentages) {
         int index = 0; // To track the index of the ArrayList
 
@@ -176,7 +186,7 @@ public class HomeController {
                 System.out.println("Category: " + name + ", Value: " + value );
                 categoryPercentage.add(name);
             }
-            setLabelTexts(topsellgrid, categoryPercentage);
+//            setLabelTexts(topsellgrid, categoryPercentage);
 
         });
 
@@ -185,5 +195,64 @@ public class HomeController {
         });
         new Thread(fetchPieDataTask).start();
     }
+
+
+    /**
+     * Gets the total orders and updates the orderCount label.
+     */
+    public void getDashboardOrderCount() {
+        Task<Integer> getOrderCount = new Task<Integer>() {
+            @Override
+            protected Integer call() {
+                return Datasource.getInstance().countAllOrders();
+            }
+        };
+
+        getOrderCount.setOnSucceeded(e -> {
+            orderCount.setText(String.valueOf(getOrderCount.valueProperty().getValue()));
+        });
+
+        new Thread(getOrderCount).start();
+    }
+
+    /**
+     * Gets the total revenue and updates the revenueCount label.
+     */
+    public void getDashboardRevenueCount() {
+        Task<Double> getRevenueCount = new Task<Double>() {
+            @Override
+            protected Double call() {
+                return Datasource.getInstance().getTotalRevenue();
+            }
+        };
+
+        getRevenueCount.setOnSucceeded(e -> {
+            revenueCount.setText(String.format("$%.2f", getRevenueCount.valueProperty().getValue()));
+        });
+
+        new Thread(getRevenueCount).start();
+    }
+
+    /**
+     * Gets the count of low-stock products and updates the lowStockCount label.
+     */
+    public void getDashboardLowStockCount() {
+        Task<Integer> getLowStockCount = new Task<Integer>() {
+            @Override
+            protected Integer call() {
+                return Datasource.getInstance().countLowStockProducts();
+            }
+        };
+
+        getLowStockCount.setOnSucceeded(e -> {
+            lowStockCount.setText(String.valueOf(getLowStockCount.valueProperty().getValue()));
+        });
+
+        new Thread(getLowStockCount).start();
+    }
+
+
+
+
 
 }

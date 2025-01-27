@@ -18,6 +18,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import model.Datasource;
 
 import java.io.IOException;
 import java.net.URL;
@@ -65,6 +66,11 @@ public class MainDashboardController implements Initializable {
         homeController.getDashboardCostCount();
         homeController.initializeTrendChart();
         homeController.initializeTopCategoryPie();
+
+        homeController.getDashboardOrderCount();
+        homeController.getDashboardRevenueCount();
+        homeController.getDashboardLowStockCount();
+//        Datasource.getInstance().close();
     }
 
     /**
@@ -189,5 +195,10 @@ public class MainDashboardController implements Initializable {
         homeController.getDashboardCostCount();
         homeController.initializeTrendChart();
         homeController.initializeTopCategoryPie();
+
+        homeController.getDashboardOrderCount();
+        homeController.getDashboardRevenueCount();
+        homeController.getDashboardLowStockCount();
+//        Datasource.getInstance().close();
     }
 }

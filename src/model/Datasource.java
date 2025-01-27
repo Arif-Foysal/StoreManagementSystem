@@ -994,10 +994,49 @@ public class Datasource extends Product {
     }
 
 
+    // Query to get the total number of orders
+    public Integer countAllOrders() {
+        try (Statement statement = conn.createStatement();
+             ResultSet results = statement.executeQuery("SELECT COUNT(*) FROM orders")) {
+            if (results.next()) {
+                return results.getInt(1);
+            } else {
+                return 0;
+            }
+        } catch (SQLException e) {
+            System.out.println("Query failed: " + e.getMessage());
+            return 0;
+        }
+    }
 
+    // Query to get the total revenue
+    public Double getTotalRevenue() {
+        try (Statement statement = conn.createStatement();
+             ResultSet results = statement.executeQuery("SELECT SUM(price) AS revenue FROM products WHERE id IN (SELECT product_id FROM orders)")) {
+            if (results.next()) {
+                return results.getDouble(1);
+            } else {
+                return 0.0;
+            }
+        } catch (SQLException e) {
+            System.out.println("Query failed: " + e.getMessage());
+            return 0.0;
+        }
+    }
 
-
-
-
+    // Query to get the count of products with stock less than 5
+    public Integer countLowStockProducts() {
+        try (Statement statement = conn.createStatement();
+             ResultSet results = statement.executeQuery("SELECT COUNT(*) FROM products WHERE quantity < 5")) {
+            if (results.next()) {
+                return results.getInt(1);
+            } else {
+                return 0;
+            }
+        } catch (SQLException e) {
+            System.out.println("Query failed: " + e.getMessage());
+            return 0;
+        }
+    }
 
 }
