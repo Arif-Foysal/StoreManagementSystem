@@ -61,7 +61,7 @@ Use the following credentials to access the system:
 
 | Username     | Password          |
 | -------- | -------------- |
-| sajdoko | 1 |
+| ariffoysal | 123456 |
 | testuser | 123456 |
 
 ## Screenshots
